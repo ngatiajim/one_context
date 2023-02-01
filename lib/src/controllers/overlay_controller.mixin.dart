@@ -113,29 +113,34 @@ mixin OverlayController {
       {Widget Function(BuildContext? context)? builder,
       Color? backgroundColor,
       Color? circularProgressIndicatorColor, bool allowDismiss=false}) {
-    return showOverlay(
-        builder: (_) => GestureDetector(
+        return showOverlay(
+        builder:
+            (_) => /*GestureDetector(
             onTap: () {
               if (allowDismiss) hideOverlay();
             },
             child:Container(
               width: double.infinity,
               height: double.infinity,
-              child: Stack(
-              children: <Widget>[
-                ModalBarrier(
-                  dismissible: allowDismiss,
-                  color: backgroundColor ?? Colors.black45,
-                ),
-                builder != null
-                    ? builder(context)
-                    : Center(
-                        child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                            circularProgressIndicatorColor ?? Colors.white),
-                      ))
-              ],
-            ))));
+              child:*/
+                Stack(
+                  children: <Widget>[
+                    ModalBarrier(
+                      dismissible: allowDismiss,
+                      color: backgroundColor ?? Colors.black45,
+                      onDismiss: () {
+                        if (allowDismiss) hideOverlay();
+                      },
+                    ),
+                    builder != null
+                        ? builder(context)
+                        : Center(
+                            child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                circularProgressIndicatorColor ?? Colors.white),
+                          ))
+                  ],
+                ));
   }
 
   /// Hide progress indicator if it is visible
