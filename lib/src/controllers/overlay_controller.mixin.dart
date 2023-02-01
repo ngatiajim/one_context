@@ -115,14 +115,7 @@ mixin OverlayController {
       Color? circularProgressIndicatorColor, bool allowDismiss=false}) {
         return showOverlay(
         builder:
-            (_) => /*GestureDetector(
-            onTap: () {
-              if (allowDismiss) hideOverlay();
-            },
-            child:Container(
-              width: double.infinity,
-              height: double.infinity,
-              child:*/
+            (_) => 
                 Stack(
                   children: <Widget>[
                     ModalBarrier(
