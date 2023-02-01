@@ -116,7 +116,7 @@ mixin OverlayController {
     return showOverlay(
         builder: (_) => GestureDetector(
             onTap: () {
-              if (allowDismiss) removeAllOverlays();
+              if (allowDismiss) hideOverlay();
               //_overlayEntry?.remove();
             },
             child: Stack(
